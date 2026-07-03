@@ -1,0 +1,1356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A5F0A012FEC4ABA00000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5F0A012FEC4ABA00000003 /* Sparkle */; };
+		8016AA4B2FB1E7BF00A1D348 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A72FA48B46001237D0 /* WidgetKit.framework */; };
+		8016AA4C2FB1E7BF00A1D348 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A92FA48B46001237D0 /* SwiftUI.framework */; };
+		8016AA592FB1E7C000A1D348 /* OatlyWatchComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8016AA4A2FB1E7BF00A1D348 /* OatlyWatchComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		80C559A82FA48B46001237D0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A72FA48B46001237D0 /* WidgetKit.framework */; };
+		80C559AA2FA48B46001237D0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A92FA48B46001237D0 /* SwiftUI.framework */; };
+		80C559B72FA48B48001237D0 /* OatlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 80C559A52FA48B46001237D0 /* OatlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		80DCB57E2FB1D913001C97C9 /* OatlyWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 80DCB55E2FB1D911001C97C9 /* OatlyWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8016AA572FB1E7C000A1D348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A9BB882FA0BA18004E82B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8016AA492FB1E7BF00A1D348;
+			remoteInfo = OatlyWatchComplicationExtension;
+		};
+		80C559B52FA48B48001237D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A9BB882FA0BA18004E82B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80C559A42FA48B46001237D0;
+			remoteInfo = OatlyWidgetExtension;
+		};
+		80DCB56B2FB1D913001C97C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A9BB882FA0BA18004E82B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80DCB55D2FB1D911001C97C9;
+			remoteInfo = "OatlyWatch Watch App";
+		};
+		80DCB5752FB1D913001C97C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A9BB882FA0BA18004E82B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80DCB55D2FB1D911001C97C9;
+			remoteInfo = "OatlyWatch Watch App";
+		};
+		80DCB57C2FB1D913001C97C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A9BB882FA0BA18004E82B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80DCB55D2FB1D911001C97C9;
+			remoteInfo = "OatlyWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8016AA412FB1E75B00A1D348 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8016AA592FB1E7C000A1D348 /* OatlyWatchComplicationExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C559BC2FA48B48001237D0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				80C559B72FA48B48001237D0 /* OatlyWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5822FB1D913001C97C9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				80DCB57E2FB1D913001C97C9 /* OatlyWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		800DC17F2FA21FBC00C11B82 /* Oatly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oatly.entitlements; sourceTree = "<group>"; };
+		800DC1882FA2271400C11B82 /* OatlyMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OatlyMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8016AA4A2FB1E7BF00A1D348 /* OatlyWatchComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OatlyWatchComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		80A9BB902FA0BA18004E82B5 /* Oatly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oatly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C559A52FA48B46001237D0 /* OatlyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OatlyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C559A72FA48B46001237D0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		80C559A92FA48B46001237D0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		80C559BD2FA48CAA001237D0 /* OatlyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OatlyWidgetExtension.entitlements; sourceTree = "<group>"; };
+		80DCB55E2FB1D911001C97C9 /* OatlyWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OatlyWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80DCB56A2FB1D913001C97C9 /* OatlyWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OatlyWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80DCB5742FB1D913001C97C9 /* OatlyWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OatlyWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		800DC1A02FA229D500C11B82 /* Exceptions for "Oatly" folder in "OatlyMobile" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				OTTaskJSON.swift,
+			);
+			target = 800DC1872FA2271400C11B82 /* OatlyMobile */;
+		};
+		8016AA5D2FB1E7C000A1D348 /* Exceptions for "OatlyWatchComplication" folder in "OatlyWatchComplicationExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8016AA492FB1E7BF00A1D348 /* OatlyWatchComplicationExtension */;
+		};
+		80C559BB2FA48B48001237D0 /* Exceptions for "OatlyWidget" folder in "OatlyWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 80C559A42FA48B46001237D0 /* OatlyWidgetExtension */;
+		};
+		80C559BF2FA48CC6001237D0 /* Exceptions for "Oatly" folder in "OatlyWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				OTTaskJSON.swift,
+			);
+			target = 80C559A42FA48B46001237D0 /* OatlyWidgetExtension */;
+		};
+		80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				OTTaskJSON.swift,
+			);
+			target = 80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		800DC1892FA2271400C11B82 /* OatlyMobile */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = OatlyMobile;
+			sourceTree = "<group>";
+		};
+		8016AA4D2FB1E7BF00A1D348 /* OatlyWatchComplication */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8016AA5D2FB1E7C000A1D348 /* Exceptions for "OatlyWatchComplication" folder in "OatlyWatchComplicationExtension" target */,
+			);
+			path = OatlyWatchComplication;
+			sourceTree = "<group>";
+		};
+		80A9BB922FA0BA18004E82B5 /* Oatly */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				800DC1A02FA229D500C11B82 /* Exceptions for "Oatly" folder in "OatlyMobile" target */,
+				80C559BF2FA48CC6001237D0 /* Exceptions for "Oatly" folder in "OatlyWidgetExtension" target */,
+				80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */,
+			);
+			path = Oatly;
+			sourceTree = "<group>";
+		};
+		80C559AB2FA48B46001237D0 /* OatlyWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				80C559BB2FA48B48001237D0 /* Exceptions for "OatlyWidget" folder in "OatlyWidgetExtension" target */,
+			);
+			path = OatlyWidget;
+			sourceTree = "<group>";
+		};
+		80DCB55F2FB1D911001C97C9 /* OatlyWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "OatlyWatch Watch App";
+			sourceTree = "<group>";
+		};
+		80DCB56D2FB1D913001C97C9 /* OatlyWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "OatlyWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		80DCB5772FB1D913001C97C9 /* OatlyWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "OatlyWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		800DC1852FA2271400C11B82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8016AA472FB1E7BF00A1D348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8016AA4C2FB1E7BF00A1D348 /* SwiftUI.framework in Frameworks */,
+				8016AA4B2FB1E7BF00A1D348 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80A9BB8D2FA0BA18004E82B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A5F0A012FEC4ABA00000001 /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C559A22FA48B46001237D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80C559AA2FA48B46001237D0 /* SwiftUI.framework in Frameworks */,
+				80C559A82FA48B46001237D0 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB55B2FB1D911001C97C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5672FB1D913001C97C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5712FB1D913001C97C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80A9BB872FA0BA18004E82B5 = {
+			isa = PBXGroup;
+			children = (
+				80C559BD2FA48CAA001237D0 /* OatlyWidgetExtension.entitlements */,
+				800DC17F2FA21FBC00C11B82 /* Oatly.entitlements */,
+				80A9BB922FA0BA18004E82B5 /* Oatly */,
+				800DC1892FA2271400C11B82 /* OatlyMobile */,
+				80C559AB2FA48B46001237D0 /* OatlyWidget */,
+				80DCB55F2FB1D911001C97C9 /* OatlyWatch Watch App */,
+				80DCB56D2FB1D913001C97C9 /* OatlyWatch Watch AppTests */,
+				80DCB5772FB1D913001C97C9 /* OatlyWatch Watch AppUITests */,
+				8016AA4D2FB1E7BF00A1D348 /* OatlyWatchComplication */,
+				80C559A62FA48B46001237D0 /* Frameworks */,
+				80A9BB912FA0BA18004E82B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80A9BB912FA0BA18004E82B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80A9BB902FA0BA18004E82B5 /* Oatly.app */,
+				800DC1882FA2271400C11B82 /* OatlyMobile.app */,
+				80C559A52FA48B46001237D0 /* OatlyWidgetExtension.appex */,
+				80DCB55E2FB1D911001C97C9 /* OatlyWatch Watch App.app */,
+				80DCB56A2FB1D913001C97C9 /* OatlyWatch Watch AppTests.xctest */,
+				80DCB5742FB1D913001C97C9 /* OatlyWatch Watch AppUITests.xctest */,
+				8016AA4A2FB1E7BF00A1D348 /* OatlyWatchComplicationExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80C559A62FA48B46001237D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80C559A72FA48B46001237D0 /* WidgetKit.framework */,
+				80C559A92FA48B46001237D0 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		800DC1872FA2271400C11B82 /* OatlyMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800DC1902FA2271600C11B82 /* Build configuration list for PBXNativeTarget "OatlyMobile" */;
+			buildPhases = (
+				800DC1842FA2271400C11B82 /* Sources */,
+				800DC1852FA2271400C11B82 /* Frameworks */,
+				800DC1862FA2271400C11B82 /* Resources */,
+				80C559BC2FA48B48001237D0 /* Embed Foundation Extensions */,
+				80DCB5822FB1D913001C97C9 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80C559B62FA48B48001237D0 /* PBXTargetDependency */,
+				80DCB57D2FB1D913001C97C9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				800DC1892FA2271400C11B82 /* OatlyMobile */,
+			);
+			name = OatlyMobile;
+			packageProductDependencies = (
+			);
+			productName = OatlyMobile;
+			productReference = 800DC1882FA2271400C11B82 /* OatlyMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8016AA492FB1E7BF00A1D348 /* OatlyWatchComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8016AA5A2FB1E7C000A1D348 /* Build configuration list for PBXNativeTarget "OatlyWatchComplicationExtension" */;
+			buildPhases = (
+				8016AA462FB1E7BF00A1D348 /* Sources */,
+				8016AA472FB1E7BF00A1D348 /* Frameworks */,
+				8016AA482FB1E7BF00A1D348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8016AA4D2FB1E7BF00A1D348 /* OatlyWatchComplication */,
+			);
+			name = OatlyWatchComplicationExtension;
+			packageProductDependencies = (
+			);
+			productName = OatlyWatchComplicationExtension;
+			productReference = 8016AA4A2FB1E7BF00A1D348 /* OatlyWatchComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		80A9BB8F2FA0BA18004E82B5 /* Oatly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80A9BB9B2FA0BA1A004E82B5 /* Build configuration list for PBXNativeTarget "Oatly" */;
+			buildPhases = (
+				80A9BB8C2FA0BA18004E82B5 /* Sources */,
+				80A9BB8D2FA0BA18004E82B5 /* Frameworks */,
+				80A9BB8E2FA0BA18004E82B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				80A9BB922FA0BA18004E82B5 /* Oatly */,
+			);
+			name = Oatly;
+			packageProductDependencies = (
+				9A5F0A012FEC4ABA00000003 /* Sparkle */,
+			);
+			productName = OT;
+			productReference = 80A9BB902FA0BA18004E82B5 /* Oatly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		80C559A42FA48B46001237D0 /* OatlyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C559B82FA48B48001237D0 /* Build configuration list for PBXNativeTarget "OatlyWidgetExtension" */;
+			buildPhases = (
+				80C559A12FA48B46001237D0 /* Sources */,
+				80C559A22FA48B46001237D0 /* Frameworks */,
+				80C559A32FA48B46001237D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				80C559AB2FA48B46001237D0 /* OatlyWidget */,
+			);
+			name = OatlyWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = OatlyWidgetExtension;
+			productReference = 80C559A52FA48B46001237D0 /* OatlyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80DCB57F2FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch App" */;
+			buildPhases = (
+				80DCB55A2FB1D911001C97C9 /* Sources */,
+				80DCB55B2FB1D911001C97C9 /* Frameworks */,
+				80DCB55C2FB1D911001C97C9 /* Resources */,
+				8016AA412FB1E75B00A1D348 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8016AA582FB1E7C000A1D348 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				80DCB55F2FB1D911001C97C9 /* OatlyWatch Watch App */,
+			);
+			name = "OatlyWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "OatlyWatch Watch App";
+			productReference = 80DCB55E2FB1D911001C97C9 /* OatlyWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		80DCB5692FB1D913001C97C9 /* OatlyWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80DCB5832FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch AppTests" */;
+			buildPhases = (
+				80DCB5662FB1D913001C97C9 /* Sources */,
+				80DCB5672FB1D913001C97C9 /* Frameworks */,
+				80DCB5682FB1D913001C97C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80DCB56C2FB1D913001C97C9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				80DCB56D2FB1D913001C97C9 /* OatlyWatch Watch AppTests */,
+			);
+			name = "OatlyWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "OatlyWatch Watch AppTests";
+			productReference = 80DCB56A2FB1D913001C97C9 /* OatlyWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		80DCB5732FB1D913001C97C9 /* OatlyWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80DCB5862FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch AppUITests" */;
+			buildPhases = (
+				80DCB5702FB1D913001C97C9 /* Sources */,
+				80DCB5712FB1D913001C97C9 /* Frameworks */,
+				80DCB5722FB1D913001C97C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80DCB5762FB1D913001C97C9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				80DCB5772FB1D913001C97C9 /* OatlyWatch Watch AppUITests */,
+			);
+			name = "OatlyWatch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "OatlyWatch Watch AppUITests";
+			productReference = 80DCB5742FB1D913001C97C9 /* OatlyWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80A9BB882FA0BA18004E82B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					800DC1872FA2271400C11B82 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					8016AA492FB1E7BF00A1D348 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					80A9BB8F2FA0BA18004E82B5 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					80C559A42FA48B46001237D0 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					80DCB55D2FB1D911001C97C9 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					80DCB5692FB1D913001C97C9 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 80DCB55D2FB1D911001C97C9;
+					};
+					80DCB5732FB1D913001C97C9 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 80DCB55D2FB1D911001C97C9;
+					};
+				};
+			};
+			buildConfigurationList = 80A9BB8B2FA0BA18004E82B5 /* Build configuration list for PBXProject "Oatly" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80A9BB872FA0BA18004E82B5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9A5F0A012FEC4ABA00000002 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 80A9BB912FA0BA18004E82B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80A9BB8F2FA0BA18004E82B5 /* Oatly */,
+				800DC1872FA2271400C11B82 /* OatlyMobile */,
+				80C559A42FA48B46001237D0 /* OatlyWidgetExtension */,
+				80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */,
+				80DCB5692FB1D913001C97C9 /* OatlyWatch Watch AppTests */,
+				80DCB5732FB1D913001C97C9 /* OatlyWatch Watch AppUITests */,
+				8016AA492FB1E7BF00A1D348 /* OatlyWatchComplicationExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		800DC1862FA2271400C11B82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8016AA482FB1E7BF00A1D348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80A9BB8E2FA0BA18004E82B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C559A32FA48B46001237D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB55C2FB1D911001C97C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5682FB1D913001C97C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5722FB1D913001C97C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		800DC1842FA2271400C11B82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8016AA462FB1E7BF00A1D348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80A9BB8C2FA0BA18004E82B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C559A12FA48B46001237D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB55A2FB1D911001C97C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5662FB1D913001C97C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80DCB5702FB1D913001C97C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8016AA582FB1E7C000A1D348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8016AA492FB1E7BF00A1D348 /* OatlyWatchComplicationExtension */;
+			targetProxy = 8016AA572FB1E7C000A1D348 /* PBXContainerItemProxy */;
+		};
+		80C559B62FA48B48001237D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80C559A42FA48B46001237D0 /* OatlyWidgetExtension */;
+			targetProxy = 80C559B52FA48B48001237D0 /* PBXContainerItemProxy */;
+		};
+		80DCB56C2FB1D913001C97C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */;
+			targetProxy = 80DCB56B2FB1D913001C97C9 /* PBXContainerItemProxy */;
+		};
+		80DCB5762FB1D913001C97C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */;
+			targetProxy = 80DCB5752FB1D913001C97C9 /* PBXContainerItemProxy */;
+		};
+		80DCB57D2FB1D913001C97C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */;
+			targetProxy = 80DCB57C2FB1D913001C97C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		800DC1912FA2271600C11B82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OatlyMobile/OatlyMobile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Oatly shows today's events from your calendar at the top of the Hot screen.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		800DC1922FA2271600C11B82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OatlyMobile/OatlyMobile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Oatly shows today's events from your calendar at the top of the Hot screen.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8016AA5B2FB1E7C000A1D348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OatlyWatchComplication/OatlyWatchComplication.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OatlyWatchComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWatchComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.watchkitapp.OatlyWatchComplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		8016AA5C2FB1E7C000A1D348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OatlyWatchComplication/OatlyWatchComplication.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OatlyWatchComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWatchComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.watchkitapp.OatlyWatchComplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+		80A9BB992FA0BA1A004E82B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		80A9BB9A2FA0BA1A004E82B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		80A9BB9C2FA0BA1A004E82B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = Oatly.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Oatly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oatly;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.Oatly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		80A9BB9D2FA0BA1A004E82B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = Oatly.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Oatly/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oatly;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.Oatly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+		80C559B92FA48B48001237D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OatlyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OatlyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.OatlyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80C559BA2FA48B48001237D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OatlyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OatlyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.OatlyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80DCB5802FB1D913001C97C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "OatlyWatch Watch App/OatlyWatchApp.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = davidturnbull.OatlyMobile;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		80DCB5812FB1D913001C97C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "OatlyWatch Watch App/OatlyWatchApp.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OatlyWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = davidturnbull.OatlyMobile;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidturnbull.OatlyMobile.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+		80DCB5842FB1D913001C97C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "davidturnbull.OatlyWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OatlyWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OatlyWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		80DCB5852FB1D913001C97C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "davidturnbull.OatlyWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OatlyWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OatlyWatch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+		80DCB5872FB1D913001C97C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "davidturnbull.OatlyWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "OatlyWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Debug;
+		};
+		80DCB5882FB1D913001C97C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RRVXTX543;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "davidturnbull.OatlyWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "OatlyWatch Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		800DC1902FA2271600C11B82 /* Build configuration list for PBXNativeTarget "OatlyMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800DC1912FA2271600C11B82 /* Debug */,
+				800DC1922FA2271600C11B82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8016AA5A2FB1E7C000A1D348 /* Build configuration list for PBXNativeTarget "OatlyWatchComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8016AA5B2FB1E7C000A1D348 /* Debug */,
+				8016AA5C2FB1E7C000A1D348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80A9BB8B2FA0BA18004E82B5 /* Build configuration list for PBXProject "Oatly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80A9BB992FA0BA1A004E82B5 /* Debug */,
+				80A9BB9A2FA0BA1A004E82B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80A9BB9B2FA0BA1A004E82B5 /* Build configuration list for PBXNativeTarget "Oatly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80A9BB9C2FA0BA1A004E82B5 /* Debug */,
+				80A9BB9D2FA0BA1A004E82B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C559B82FA48B48001237D0 /* Build configuration list for PBXNativeTarget "OatlyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C559B92FA48B48001237D0 /* Debug */,
+				80C559BA2FA48B48001237D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80DCB57F2FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80DCB5802FB1D913001C97C9 /* Debug */,
+				80DCB5812FB1D913001C97C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80DCB5832FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80DCB5842FB1D913001C97C9 /* Debug */,
+				80DCB5852FB1D913001C97C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80DCB5862FB1D913001C97C9 /* Build configuration list for PBXNativeTarget "OatlyWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80DCB5872FB1D913001C97C9 /* Debug */,
+				80DCB5882FB1D913001C97C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A5F0A012FEC4ABA00000002 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A5F0A012FEC4ABA00000003 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A5F0A012FEC4ABA00000002 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 80A9BB882FA0BA18004E82B5 /* Project object */;
+}
