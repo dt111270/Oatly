@@ -16,14 +16,10 @@ In Xcode: **Product ▸ Scheme ▸ Manage Schemes…** — if there's no `Oatly`
 
 ## 1. Put Oatly on GitHub
 
-Oatly isn't a git repo yet. From the project root:
+Done already, locally: `git init`, `.gitignore`, and two commits are in place (the Sparkle plumbing, then a follow-up that removed a stray leftover nested `.git` from inside `Oatly/Oatly/` — an old, disconnected 6-commit experiment from April/May that never had a remote — so the real source is tracked cleanly). All that's left is creating the GitHub repo and pushing:
 
 ```
-cd ~/Developer/Oatly          # or wherever this ends up living day-to-day
-git init
-cp release/.gitignore-template .gitignore   # or just reuse OhDelhi's .gitignore
-git add .
-git commit -m "Oatly — add Sparkle auto-update plumbing"
+cd "~/path/to/Oatly"
 gh repo create Oatly --public --source=. --push
 ```
 

@@ -134,6 +134,13 @@
 			);
 			target = 80C559A42FA48B46001237D0 /* OatlyWidgetExtension */;
 		};
+		9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 80A9BB8F2FA0BA18004E82B5 /* Oatly */;
+		};
 		80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -163,6 +170,7 @@
 				800DC1A02FA229D500C11B82 /* Exceptions for "Oatly" folder in "OatlyMobile" target */,
 				80C559BF2FA48CC6001237D0 /* Exceptions for "Oatly" folder in "OatlyWidgetExtension" target */,
 				80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */,
+				9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */,
 			);
 			path = Oatly;
 			sourceTree = "<group>";
