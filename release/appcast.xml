@@ -5,6 +5,15 @@
     <description>Oatly task manager — automatic updates.</description>
     <language>en</language>
 
+    <item>
+      <title>1.1</title>
+      <pubDate>Fri, 03 Jul 2026 21:07:01 +0100</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.3</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/dt111270/Oatly/releases/download/v1.1/Oatly-1.1.zip" sparkle:edSignature="QpJtZ1EniZDJu4FW3ifVqiPqPl2hJWTdHUU403iamspMvFxVarYUvEX9VwvUGRRBggIPF5wtNU0tIFP4Ii2OAg==" length="4149045" type="application/octet-stream" />
+    </item>
+
     <!--
       release.sh PREPENDS a new <item> here on each release. Newest first.
       This file starts empty — the first run of release.sh will insert the
