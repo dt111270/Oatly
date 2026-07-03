@@ -60,6 +60,7 @@ rm -rf "$BUILD_DIR"; mkdir -p "$BUILD_DIR"
 echo "==> Archiving $APP_NAME $VERSION ($BUILD)"
 xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Release \
   -archivePath "$ARCHIVE" \
+  -allowProvisioningUpdates \
   MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$BUILD" \
   archive
 
