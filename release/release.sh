@@ -67,7 +67,8 @@ xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Release \
 echo "==> Exporting (Developer ID)"
 xcodebuild -exportArchive -archivePath "$ARCHIVE" \
   -exportPath "$EXPORT_DIR" \
-  -exportOptionsPlist "$ROOT/release/ExportOptions.plist"
+  -exportOptionsPlist "$ROOT/release/ExportOptions.plist" \
+  -allowProvisioningUpdates
 
 echo "==> Zipping for notarisation"
 ditto -c -k --keepParent "$APP" "$ZIP"
