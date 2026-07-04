@@ -14,6 +14,7 @@ class iOSTaskStore: NSObject, ObservableObject {
 
     override init() {
         super.init()
+        TaskNotificationScheduler.requestAuthorizationIfNeeded()
         activateWatchSession()
         load()
     }
@@ -42,6 +43,8 @@ class iOSTaskStore: NSObject, ObservableObject {
 
         lastPayloadData = data
         pushToWatch(data)
+
+        TaskNotificationScheduler.sync(tasks: payload.tasks)
 
         DispatchQueue.main.async {
             self.tasks = payload.tasks

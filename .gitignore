@@ -20,3 +20,15 @@ Pods/
 
 # Misc
 *.swp
+
+# Leftover Sparkle release-tarball extraction (from generate_keys/sign_update setup) —
+# these belong to Sparkle's own distribution, not the Oatly repo.
+/CHANGELOG
+/INSTALL
+/LICENSE
+/SampleAppcast.xml
+/Sparkle.framework/
+/Sparkle Test App.app/
+/Symbols/
+/bin/
+/sparkle.tar.xz

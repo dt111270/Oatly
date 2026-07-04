@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A5F0A012FEC4ABA00000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5F0A012FEC4ABA00000003 /* Sparkle */; };
 		8016AA4B2FB1E7BF00A1D348 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A72FA48B46001237D0 /* WidgetKit.framework */; };
 		8016AA4C2FB1E7BF00A1D348 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A92FA48B46001237D0 /* SwiftUI.framework */; };
 		8016AA592FB1E7C000A1D348 /* OatlyWatchComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8016AA4A2FB1E7BF00A1D348 /* OatlyWatchComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -15,6 +14,7 @@
 		80C559AA2FA48B46001237D0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C559A92FA48B46001237D0 /* SwiftUI.framework */; };
 		80C559B72FA48B48001237D0 /* OatlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 80C559A52FA48B46001237D0 /* OatlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80DCB57E2FB1D913001C97C9 /* OatlyWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 80DCB55E2FB1D911001C97C9 /* OatlyWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A5F0A012FEC4ABA00000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9A5F0A012FEC4ABA00000003 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,19 +134,19 @@
 			);
 			target = 80C559A42FA48B46001237D0 /* OatlyWidgetExtension */;
 		};
-		9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 80A9BB8F2FA0BA18004E82B5 /* Oatly */;
-		};
 		80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				OTTaskJSON.swift,
 			);
 			target = 80DCB55D2FB1D911001C97C9 /* OatlyWatch Watch App */;
+		};
+		9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 80A9BB8F2FA0BA18004E82B5 /* Oatly */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -167,10 +167,10 @@
 		80A9BB922FA0BA18004E82B5 /* Oatly */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */,
 				800DC1A02FA229D500C11B82 /* Exceptions for "Oatly" folder in "OatlyMobile" target */,
 				80C559BF2FA48CC6001237D0 /* Exceptions for "Oatly" folder in "OatlyWidgetExtension" target */,
 				80DCB5902FB1DA00001C97C9 /* Exceptions for "Oatly" folder in "OatlyWatch Watch App" target */,
-				9A5F0A012FEC4ABA00000004 /* Exceptions for "Oatly" folder in "Oatly" target */,
 			);
 			path = Oatly;
 			sourceTree = "<group>";
