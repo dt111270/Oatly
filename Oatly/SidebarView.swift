@@ -65,7 +65,7 @@ struct SidebarView: View {
                 }
                 .toggleStyle(.switch)
                 .controlSize(.mini)
-                .disabled(ProcessInfo.processInfo.hostName == "MMUtil.local")
+                .disabled(ProcessInfo.processInfo.hostName == "Leonai.local")
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)

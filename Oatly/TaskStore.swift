@@ -18,7 +18,7 @@ class TaskStore: ObservableObject {
     @Published var todayString: String = TaskStore.computeTodayString()
 
     var iCloudSyncEnabled: Bool {
-        ProcessInfo.processInfo.hostName == "MMUtil.local" || iCloudSyncOverride
+        ProcessInfo.processInfo.hostName == "Leonai.local" || iCloudSyncOverride
     }
 
     let tasksFolder: URL
