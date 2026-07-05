@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>Oatly imports open reminders from Apple Reminders into your task list, and marks them complete once imported.</string>
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/dt111270/Oatly/main/release/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/dt111270/Oatly/master/release/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>b1nhqrbMLl9PsxVn+7583Bfy6Rpd5mxEk4+Y01OphH0=</string>
 	<key>SUScheduledCheckInterval</key>

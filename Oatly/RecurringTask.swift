@@ -26,11 +26,16 @@ enum RecurringFrequency: String, CaseIterable, Hashable, Identifiable {
     case quarterly     = "quarterly"
     case every6Months  = "every 6 months"
     case yearly        = "yearly"
+    /// Monday–Friday, skipping weekends. Can't be expressed as a fixed
+    /// Calendar.Component step like the other cases — see `advance`.
+    case weekdays      = "every weekday"
 
     var id: String { rawValue }
     var label: String { rawValue }
 
-    /// Calendar component + value to add per occurrence.
+    /// Calendar component + value to add per occurrence. Not meaningful
+    /// for `.weekdays` — use `advance(from:calendar:)` instead, which
+    /// handles every case including the weekday-skipping one.
     var step: (component: Calendar.Component, value: Int) {
         switch self {
         case .daily:        return (.day, 1)
@@ -43,6 +48,25 @@ enum RecurringFrequency: String, CaseIterable, Hashable, Identifiable {
         case .quarterly:    return (.month, 3)
         case .every6Months: return (.month, 6)
         case .yearly:       return (.year, 1)
+        case .weekdays:     return (.day, 1)   // unused; advance() overrides
+        }
+    }
+
+    /// Advance a single occurrence forward according to this frequency.
+    /// All cases except `.weekdays` just add `step`. `.weekdays` adds a
+    /// day at a time and skips over Saturday/Sunday, so "every weekday"
+    /// from a Friday lands on the following Monday.
+    func advance(from date: Date, calendar: Calendar = Calendar.current) -> Date? {
+        switch self {
+        case .weekdays:
+            guard var next = calendar.date(byAdding: .day, value: 1, to: date) else { return nil }
+            while calendar.isDateInWeekend(next) {
+                guard let after = calendar.date(byAdding: .day, value: 1, to: next) else { return nil }
+                next = after
+            }
+            return next
+        default:
+            return calendar.date(byAdding: step.component, value: step.value, to: date)
         }
     }
 
@@ -83,6 +107,8 @@ enum RecurringFrequency: String, CaseIterable, Hashable, Identifiable {
         case "every 3 months":                                      return .quarterly
         case "every 6 months", "biannually", "semi-annually":       return .every6Months
         case "every year", "annually":                              return .yearly
+        case "every weekday", "weekdays", "every week day",
+             "monday to friday", "mon-fri", "weekday":               return .weekdays
         default:                                                    return nil
         }
     }
@@ -101,6 +127,11 @@ struct OTRecurringTask: Identifiable, Equatable, Hashable {
     var nonNegotiable: Bool
     var optional: Bool
     var rootDate: String      // YYYY-MM-DD as stored
+    /// `HH:MM`, Europe/London. If set, every generated occurrence inherits
+    /// this as its own `nag_time` — see `OTTask.nagTime`.
+    var nagTime: String?
+    /// Carried through to generated occurrences the same way as `nagTime`.
+    var url: String?
 
     var body: String
 
@@ -133,9 +164,7 @@ struct OTRecurringTask: Identifiable, Equatable, Hashable {
         var next = root
         var safety = 0
         while next < today && safety < 5000 {
-            guard let advanced = calendar.date(byAdding: freq.step.component,
-                                               value: freq.step.value,
-                                               to: next) else { break }
+            guard let advanced = freq.advance(from: next, calendar: calendar) else { break }
             next = advanced
             safety += 1
         }

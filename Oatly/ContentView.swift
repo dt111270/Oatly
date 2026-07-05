@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var store = TaskStore()
-    @State private var sidebarSelection: SidebarSelection? = .smart(.hot)
+    @State private var sidebarSelection: SidebarSelection? = .smart(.today)
     @State private var selectedTask: OTTask?
     @State private var selectedRecurringTask: OTRecurringTask?
     @State private var listRefreshToken = UUID()
@@ -13,6 +13,7 @@ struct ContentView: View {
         switch sel {
         case .smart(let filter):
             switch filter {
+            case .today:   return store.tasks.filter { ($0.due ?? "9999") <= today && !["done", "dropped"].contains($0.status) }
             case .hot:     return store.tasks.filter { $0.status == "hot" }
             case .overdue: return store.tasks.filter { ($0.due ?? "9999") < today && !["done", "dropped"].contains($0.status) }
             case .warm:    return store.tasks.filter { $0.status == "warm" }

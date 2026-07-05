@@ -57,6 +57,7 @@ struct TaskParser {
             optional: fm["optional"] == "true",
             created: fm["created"],
             url: fm["url"],
+            nagTime: fm["nag_time"],
             body: body,
             rawFrontmatter: rawFrontmatter
         )
@@ -113,6 +114,8 @@ struct TaskParser {
             nonNegotiable: fm["non_negotiable"] == "true",
             optional: fm["optional"] == "true",
             rootDate: rootDate,
+            nagTime: fm["nag_time"],
+            url: fm["url"],
             body: body
         )
     }

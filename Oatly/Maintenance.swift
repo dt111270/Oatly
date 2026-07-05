@@ -15,14 +15,21 @@
 //  2. **Promote** 03.01 tasks with status `warm` or `cool` (including
 //     overdue ones) to `hot` if their due date is within today + 11 days.
 //
-//  Runs once on init and then hourly via Timer. No MMUtil host gate yet
-//  — to be added once the feature is verified on the laptop.
+//  3. **Import** open Apple Reminders into 03.01 tasks — see
+//     `ReminderImportScheduler.swift`. Native replacement (2026-07-05) for
+//     the old `OT-R2O.scpt` + `OT-R2O.py` + Keyboard Maestro pipeline.
+//
+//  Runs once on init and then every 10 minutes via Timer (was hourly until
+//  2026-07-05, tightened once the Reminders import moved in here too — a
+//  timed reminder sitting around for up to an hour before being picked up
+//  defeated the point of nag_time). No MMUtil host gate yet — to be added
+//  once the feature is verified on the laptop.
 //
 
 import Foundation
 
 private let kMaintenanceWindowDays = 11
-private let kMaintenanceIntervalSeconds: TimeInterval = 60 * 60   // hourly
+private let kMaintenanceIntervalSeconds: TimeInterval = 10 * 60   // every 10 minutes
 
 extension TaskStore {
 
@@ -42,6 +49,7 @@ extension TaskStore {
         guard iCloudSyncEnabled else { return }
         runRecurringGeneration()
         runStatusPromotion()
+        runReminderImport()
         // Refresh in-memory state so the UI reflects any file changes.
         load()
         loadRecurring()
@@ -65,13 +73,12 @@ extension TaskStore {
         loadRecurring()
 
         for recurring in recurringTasks where recurring.status == "active" {
-            guard let step = recurring.frequencyEnum?.step,
+            guard let freq = recurring.frequencyEnum,
                   let root = recurring.rootDateAsDate else { continue }
 
             let occurrences = allOccurrences(
                 rootDate: root,
-                component: step.component,
-                value: step.value,
+                frequency: freq,
                 from: today,
                 to: cutoff
             )
@@ -98,22 +105,31 @@ extension TaskStore {
                     roleField = "\"[[\(recurring.role)]]\""
                 }
 
-                let frontmatter = """
-                ---
-                name: \(yamlString(recurring.name))
-                source: recurring-task
-                parent: "[[\(parentStem)]]"
-                due: \(dueStr)
-                role: \(roleField)
-                non_negotiable: \(recurring.nonNegotiable ? "true" : "false")
-                optional: \(recurring.optional ? "true" : "false")
-                status: hot
-                created: \(isoDate(today))
-                icon: ☑️
-                color: "#ef44448f"
-                ---
-
-                """
+                var frontmatterLines = [
+                    "---",
+                    "name: \(yamlString(recurring.name))",
+                    "source: recurring-task",
+                    "parent: \"[[\(parentStem)]]\"",
+                    "due: \(dueStr)",
+                    "role: \(roleField)",
+                    "non_negotiable: \(recurring.nonNegotiable ? "true" : "false")",
+                    "optional: \(recurring.optional ? "true" : "false")",
+                    "status: hot",
+                    "created: \(isoDate(today))",
+                    "icon: ☑️",
+                    "color: \"#ef44448f\""
+                ]
+                // Carried through from the 03.02 template only if set — most
+                // recurring tasks have neither, and omitting the keys keeps
+                // the generated frontmatter identical to before.
+                if let nagTime = recurring.nagTime, !nagTime.isEmpty {
+                    frontmatterLines.append("nag_time: \(nagTime)")
+                }
+                if let url = recurring.url, !url.isEmpty {
+                    frontmatterLines.append("url: \(url)")
+                }
+                frontmatterLines.append("---\n\n")
+                let frontmatter = frontmatterLines.joined(separator: "\n")
 
                 let content = frontmatter + bodyContent
 
@@ -147,11 +163,11 @@ extension TaskStore {
     // MARK: - Helpers
 
     /// All occurrences of a recurring schedule between `from` and `to`
-    /// (both inclusive). Uses Calendar.date(byAdding:) so month-end
-    /// edge cases are handled correctly.
+    /// (both inclusive). Uses `RecurringFrequency.advance` so month-end
+    /// edge cases, and the weekday-skipping "every weekday" case, are
+    /// both handled correctly.
     private func allOccurrences(rootDate: Date,
-                                component: Calendar.Component,
-                                value: Int,
+                                frequency: RecurringFrequency,
                                 from: Date,
                                 to: Date) -> [Date] {
         let cal = Calendar.current
@@ -161,7 +177,7 @@ extension TaskStore {
 
         // Advance to the first occurrence on or after `from`.
         while candidate < from && safety < 5000 {
-            guard let next = cal.date(byAdding: component, value: value, to: candidate) else { return occurrences }
+            guard let next = frequency.advance(from: candidate, calendar: cal) else { return occurrences }
             candidate = next
             safety += 1
         }
@@ -169,7 +185,7 @@ extension TaskStore {
         // Collect all occurrences up to and including `to`.
         while candidate <= to && safety < 5000 {
             occurrences.append(candidate)
-            guard let next = cal.date(byAdding: component, value: value, to: candidate) else { break }
+            guard let next = frequency.advance(from: candidate, calendar: cal) else { break }
             candidate = next
             safety += 1
         }
@@ -177,7 +193,12 @@ extension TaskStore {
         return occurrences
     }
 
-    private func isoDate(_ d: Date) -> String {
+    // Deliberately not `private` — `ReminderImportScheduler.swift` reuses
+    // these three rather than duplicating the same formatting/quoting/
+    // sanitising logic in a second place, which is exactly the kind of
+    // drift that made the old OT-R2O.py (a parallel Python reimplementation
+    // of this same logic) worth retiring in the first place.
+    func isoDate(_ d: Date) -> String {
         let f = DateFormatter()
         f.dateFormat = "yyyy-MM-dd"
         f.locale = Locale(identifier: "en_US_POSIX")
@@ -187,7 +208,7 @@ extension TaskStore {
 
     /// Quote a name as a YAML string if it contains special characters.
     /// Matches the Python script's `yaml_str` helper.
-    private func yamlString(_ s: String) -> String {
+    func yamlString(_ s: String) -> String {
         let special: Set<Character> = [":", "[", "]", "#", "{", "}", "|", ">", "&", "*", "!", ",", "?", "'", "\""]
         if s.contains(where: { special.contains($0) }) {
             let escaped = s.replacingOccurrences(of: "\\", with: "\\\\")
@@ -199,7 +220,7 @@ extension TaskStore {
 
     /// Strip characters that are invalid (or awkward) in filenames.
     /// Matches the Python script's `safe_filename` helper.
-    private func sanitiseFilename(_ name: String) -> String {
+    func sanitiseFilename(_ name: String) -> String {
         let invalid: Set<Character> = ["\\", "/", "*", "?", ":", "\"", "<", ">", "|", "#", "[", "]"]
         let filtered = String(name.filter { !invalid.contains($0) })
         return filtered.trimmingCharacters(in: .whitespaces)

@@ -29,6 +29,9 @@ enum TaskNotificationScheduler {
     private static let reminderMinute = 0
     private static let identifierPrefix = "oatly.due."
 
+    static let categoryIdentifier = "OATLY_DUE"
+    static let doneActionIdentifier = "OATLY_DUE_DONE"
+
     /// Call once at launch (from `iOSTaskStore.init()`).
     static func requestAuthorizationIfNeeded() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, error in
@@ -38,13 +41,48 @@ enum TaskNotificationScheduler {
         }
     }
 
+    /// This scheduler's `UNNotificationCategory` — collected alongside
+    /// `NaggingNotificationScheduler.category` and registered together in
+    /// one `setNotificationCategories` call from `iOSTaskStore.init()`.
+    /// That call *replaces* the entire registered set rather than merging,
+    /// so each scheduler must never call it independently — only ever
+    /// build its category and hand it off to be registered as a batch.
+    ///
+    /// `.foreground` on the action matters, not just cosmetically: without
+    /// it, Done is handled purely in the background, and the `obsidian://`
+    /// URL that actually writes `status: done` silently fails to hand off
+    /// to Obsidian unless Oatly itself is foregrounded first (the exact
+    /// bug this caused for the nagging notifications' Done button).
+    static var category: UNNotificationCategory {
+        let done = UNNotificationAction(
+            identifier: doneActionIdentifier,
+            title: "Done",
+            options: [.authenticationRequired, .foreground]
+        )
+        return UNNotificationCategory(
+            identifier: categoryIdentifier,
+            actions: [done],
+            intentIdentifiers: [],
+            options: []
+        )
+    }
+
     /// Call after every successful `load()`. Diffs the qualifying task set
-    /// (hot, due today or earlier) against currently-scheduled notifications
-    /// and adds/removes requests to match.
-    static func sync(tasks: [OTTaskJSON]) {
+    /// (hot, due today or earlier, not a nagging task) against
+    /// currently-scheduled notifications and adds/removes requests to match.
+    /// Tasks with `nagTime` set are excluded — they get the every-5-minute
+    /// treatment from `NaggingNotificationScheduler` instead, not this one.
+    ///
+    /// `excludingKeys` — see the equivalent parameter on
+    /// `NaggingNotificationScheduler.sync` — guards against re-scheduling a
+    /// reminder for a task marked done moments ago locally, whose done-ness
+    /// the synced payload might not reflect yet.
+    static func sync(tasks: [OTTaskJSON], excludingKeys: Set<String> = []) {
         let today = todayString()
         let qualifying = tasks.filter { task in
             guard let due = task.due, !due.isEmpty else { return false }
+            guard task.nagTime == nil || task.nagTime!.isEmpty else { return false }
+            guard !excludingKeys.contains(task.filepath ?? task.name) else { return false }
             return task.status == "hot" && due <= today
         }
 
@@ -69,6 +107,20 @@ enum TaskNotificationScheduler {
         }
     }
 
+    /// Cancel the daily reminder for one task immediately — used by the
+    /// notification-action delegate when its Done button is tapped, so it
+    /// doesn't have to wait for the next `sync()` to stop reappearing.
+    /// Removes both the pending (repeating) request and anything already
+    /// delivered/stacked in Notification Center — same two-store lesson
+    /// learned the hard way with the nagging scheduler.
+    static func cancelReminder(forKey key: String, completion: @escaping () -> Void = {}) {
+        let id = identifierPrefix + key
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [id])
+        center.removeDeliveredNotifications(withIdentifiers: [id])
+        completion()
+    }
+
     // MARK: - Private
 
     private static func identifier(for task: OTTaskJSON) -> String {
@@ -80,6 +132,11 @@ enum TaskNotificationScheduler {
         content.title = task.name
         content.body = "Due — \(displayRole(task.role))"
         content.sound = .default
+        content.categoryIdentifier = categoryIdentifier
+        content.userInfo = [
+            NaggingNotificationScheduler.userInfoFilepathKey: task.filepath ?? "",
+            NaggingNotificationScheduler.userInfoNameKey: task.name
+        ]
 
         var components = DateComponents()
         components.hour = reminderHour
