@@ -110,6 +110,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				OTTaskJSON.swift,
+				RecurringTask.swift,
 			);
 			target = 800DC1872FA2271400C11B82 /* OatlyMobile */;
 		};

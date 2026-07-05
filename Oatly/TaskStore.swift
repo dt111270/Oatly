@@ -122,7 +122,15 @@ class TaskStore: ObservableObject {
 
     private func writeToiCloud() {
         guard iCloudSyncEnabled else { return }
-        let snapshot = tasks.map { "\($0.id)|\($0.status)|\($0.name)" }.joined(separator: ",")
+        // Recurring tasks factor into the change-detection snapshot too —
+        // otherwise editing a routine's frequency/time (with the task list
+        // itself unchanged) wouldn't trigger a re-write, and mobile would
+        // sit on stale routine data until something else happened to touch
+        // a one-off task.
+        let recurringSnapshot = recurringTasks
+            .map { "\($0.id)|\($0.status)|\($0.name)|\($0.frequency)|\($0.rootDate)|\($0.nagTime ?? "")" }
+            .joined(separator: ",")
+        let snapshot = tasks.map { "\($0.id)|\($0.status)|\($0.name)" }.joined(separator: ",") + "||" + recurringSnapshot
         guard snapshot != lastWrittenSnapshot else { return }
         lastWrittenSnapshot = snapshot
 
@@ -150,7 +158,24 @@ class TaskStore: ObservableObject {
                     source: $0.source,
                     filepath: $0.fileURL.path.replacingOccurrences(
                         of: "/Users/davidturnbull/Documents/DTObs/", with: ""
-                    )
+                    ),
+                    nagTime: $0.nagTime,
+                    url: $0.url
+                )
+            },
+            recurringTasks: recurringTasks.map {
+                OTRecurringTaskJSON(
+                    name: $0.name,
+                    role: $0.role,
+                    frequency: $0.frequency,
+                    status: $0.status,
+                    rootDate: $0.rootDate,
+                    nagTime: $0.nagTime,
+                    url: $0.url,
+                    filepath: $0.fileURL.path.replacingOccurrences(
+                        of: "/Users/davidturnbull/Documents/DTObs/", with: ""
+                    ),
+                    nextDue: $0.nextDueString == "—" ? nil : $0.nextDueString
                 )
             }
         )

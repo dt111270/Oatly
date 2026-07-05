@@ -13,8 +13,6 @@
 
 import SwiftUI
 
-private let brandBlue = Color(red: 48/255, green: 95/255, blue: 188/255)
-
 struct iPadTaskSection: Identifiable {
     let title: String
     let tasks: [OTTaskJSON]
@@ -38,20 +36,24 @@ struct iPadTaskListView: View {
                                 TaskRowView(
                                     task: task,
                                     isChecked: store.checkedNames.contains(task.name),
-                                    onCheck: { store.markDone(task) }
+                                    onCheck: { store.markDone(task) },
+                                    showDivider: false  // List already draws its own row separator
                                 )
                                 .tag(task)
                                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                                .listRowBackground(OTPalette.cardSurface)
                             }
                         } header: {
                             Text(section.title)
                                 .font(.system(size: 13, weight: .bold))
-                                .foregroundColor(brandBlue)
+                                .foregroundColor(OTPalette.accent)
                                 .textCase(nil)
                         }
                     }
                 }
                 .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(OTPalette.background)
                 .environment(\.defaultMinListRowHeight, 0)
             }
         }
@@ -103,6 +105,7 @@ struct iPadTaskListView: View {
     private func filtered(by f: SmartFilter) -> [OTTaskJSON] {
         let today = String(ISO8601DateFormatter().string(from: Date()).prefix(10))
         switch f {
+        case .today:   return store.tasks.filter { ($0.due ?? "9999") <= today && !["done", "dropped"].contains($0.status) }
         case .hot:     return store.tasks.filter { $0.status == "hot" }
         case .overdue: return store.tasks.filter { ($0.due ?? "9999") < today && !["done", "dropped"].contains($0.status) }
         case .warm:    return store.tasks.filter { $0.status == "warm" }

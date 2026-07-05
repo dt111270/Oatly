@@ -11,7 +11,7 @@ import SwiftUI
 
 struct iPadContentView: View {
     @StateObject private var store: iOSTaskStore = iOSTaskStore()
-    @State private var sidebarSelection: iPadSidebarSelection? = .filter(.hot)
+    @State private var sidebarSelection: iPadSidebarSelection? = .filter(.today)
     @State private var selectedTask: OTTaskJSON?
     @State private var showingAddTask = false
 

@@ -3,13 +3,11 @@
 //  OatlyMobile (iPad)
 //
 //  Sidebar pane of the iPad three-pane layout. Lists smart filters
-//  (Hot / Overdue / Warm / Cool / Log) and the set of roles drawn
-//  from active tasks. Each row shows a count badge.
+//  (Today / Hot / Overdue / Warm / Cool / Log) and the set of roles
+//  drawn from active tasks. Each row shows a count badge.
 //
 
 import SwiftUI
-
-private let brandBlue = Color(red: 48/255, green: 95/255, blue: 188/255)
 
 struct iPadSidebarView: View {
     let tasks: [OTTaskJSON]
@@ -56,6 +54,8 @@ struct iPadSidebarView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(OTPalette.background)
         .navigationTitle("Oatly")
     }
 
@@ -81,6 +81,7 @@ struct iPadSidebarView: View {
     private func smartFilterCount(_ f: SmartFilter) -> Int {
         let today = String(ISO8601DateFormatter().string(from: Date()).prefix(10))
         switch f {
+        case .today:   return tasks.filter { ($0.due ?? "9999") <= today && !["done", "dropped"].contains($0.status) }.count
         case .hot:     return tasks.filter { $0.status == "hot" }.count
         case .overdue: return tasks.filter { ($0.due ?? "9999") < today && !["done", "dropped"].contains($0.status) }.count
         case .warm:    return tasks.filter { $0.status == "warm" }.count

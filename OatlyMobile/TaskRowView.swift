@@ -4,43 +4,66 @@ struct TaskRowView: View {
     let task: OTTaskJSON
     let isChecked: Bool
     let onCheck: () -> Void
+    /// Hairline divider under the row — pass `false` for the last row in a
+    /// card (iPhone) or when the host already draws its own separator
+    /// (iPad's `List`, which shows a native separator per row already).
+    var showDivider: Bool = true
 
     var body: some View {
-        HStack(spacing: 12) {
-            Button(action: onCheck) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(isChecked ? Color.blue : Color.gray.opacity(0.5), lineWidth: 1.5)
-                        .frame(width: 22, height: 22)
-                    if isChecked {
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.blue)
-                    }
+        VStack(spacing: 0) {
+            HStack(spacing: 12) {
+                // Redesign spec: a plain ring, no fill/checkmark glyph even
+                // once done — just the border colour muting from accent to
+                // a neutral grey. Matches the reference mockup exactly;
+                // done tasks only ever appear here transiently anyway
+                // (right after tapping, before the next refresh drops them
+                // out of the filtered list), so the tick itself doesn't
+                // need to read at a glance.
+                Button(action: onCheck) {
+                    Circle()
+                        .strokeBorder(
+                            isChecked ? OTPalette.textPrimary.opacity(0.2) : OTPalette.accent,
+                            lineWidth: 2
+                        )
+                        .frame(width: 18, height: 18)
                 }
-                .animation(.spring(duration: 0.2), value: isChecked)
+                .buttonStyle(.plain)
+
+                titleText
+                    .font(.system(size: 14))
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+
+                Spacer(minLength: 8)
+
+                if let due = task.due {
+                    Text(OTPalette.formattedDue(due))
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(OTPalette.dueColor(due, isDone: isChecked))
+                        .fixedSize()
+                }
             }
-            .buttonStyle(.plain)
+            .padding(.vertical, 6.5)
 
-            Text(task.name)
-                .font(.system(size: 13))
-                .foregroundColor(isChecked ? .secondary : .primary)
-
-            Spacer()
-
-            if let due = task.due {
-                Text(due)
-                    .font(.caption)
-                    .foregroundColor(dueColour(due))
+            if showDivider {
+                Rectangle()
+                    .fill(OTPalette.divider)
+                    .frame(height: 0.5)
             }
         }
-        .padding(.vertical, 8)
     }
 
-    private func dueColour(_ due: String) -> Color {
-        let today = String(ISO8601DateFormatter().string(from: Date()).prefix(10))
-        if due < today { return .red }
-        if due == today { return .orange }
-        return .secondary
+    /// Task name, prefixed with "⏰ HH:MM" when `nag_time` is set — a visual
+    /// cue that this one's covered by an alarm and doesn't need worrying
+    /// about right now. Built as one concatenated `Text` (rather than a
+    /// separate view before the title) so the whole thing truncates and
+    /// dims together as a single line, same as a plain title would.
+    private var titleText: Text {
+        let color = isChecked ? OTPalette.textPrimary.opacity(0.5) : OTPalette.textPrimary
+        var text = Text("")
+        if let nagTime = task.nagTime, !nagTime.isEmpty {
+            text = text + Text("⏰ \(nagTime) ").foregroundColor(color)
+        }
+        return text + Text(task.name).foregroundColor(color)
     }
 }

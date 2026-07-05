@@ -10,8 +10,6 @@
 import SwiftUI
 import UIKit
 
-private let brandBlue = Color(red: 48/255, green: 95/255, blue: 188/255)
-
 struct iPadTaskDetailView: View {
     let task: OTTaskJSON
 
@@ -79,10 +77,11 @@ struct iPadTaskDetailView: View {
                         .font(.system(size: 14, weight: .medium))
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(brandBlue)
+                .tint(OTPalette.accent)
             }
             .padding(24)
         }
+        .background(OTPalette.background)
     }
 
     // MARK: - Status change
@@ -92,7 +91,7 @@ struct iPadTaskDetailView: View {
             changeStatus(to: value)
         }
         .buttonStyle(.bordered)
-        .tint(brandBlue)
+        .tint(OTPalette.accent)
         .font(.system(size: 13, weight: .medium))
     }
 
@@ -126,9 +125,6 @@ struct iPadTaskDetailView: View {
     }
 
     private func dueColour(_ due: String) -> Color {
-        let today = String(ISO8601DateFormatter().string(from: Date()).prefix(10))
-        if due < today { return .red }
-        if due == today { return .orange }
-        return .secondary
+        OTPalette.dueColor(due)
     }
 }
