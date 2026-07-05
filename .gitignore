@@ -17,6 +17,7 @@ Pods/
 
 # macOS
 .DS_Store
+.sync-conflict-*
 
 # Misc
 *.swp

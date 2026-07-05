@@ -114,8 +114,16 @@ gh release create "v$VERSION" "$ZIP" \
   --title "$APP_NAME $VERSION" \
   --notes "Oatly $VERSION (build $BUILD)"
 
-echo "==> Committing appcast"
-git -C "$ROOT" add release/appcast.xml
+echo "==> Committing"
+# Stages *everything*, not just the appcast — xcodebuild archives whatever's
+# sitting in the working directory regardless of git state, so any Swift
+# changes made since the last commit are already baked into the .zip this
+# script just built and uploaded. Only committing appcast.xml here would
+# leave those changes permanently uncommitted even though they've already
+# shipped — exactly what happened across 2026-07-04/05 (four releases went
+# out before any of that source work was committed). This way every release
+# is its own accurate snapshot of what was actually built.
+git -C "$ROOT" add -A
 git -C "$ROOT" commit -m "Release $VERSION (build $BUILD)"
 git -C "$ROOT" push
 
