@@ -78,7 +78,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8016AA492FB1E7BF00A1D348"
             BuildableName = "OatlyWatchComplicationExtension.appex"
-            BlueprintName = "OatlyWatchComplicationExtension"
             ReferencedContainer = "container:Oatly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -121,7 +120,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8016AA492FB1E7BF00A1D348"
             BuildableName = "OatlyWatchComplicationExtension.appex"
-            BlueprintName = "OatlyWatchComplicationExtension"
             ReferencedContainer = "container:Oatly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
