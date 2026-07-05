@@ -34,8 +34,13 @@ struct Provider: TimelineProvider {
               let payload = try? JSONDecoder().decode(OTTasksPayload.self, from: data)
         else { return [] }
 
+        // Simplified 5 July 2026 (David): widget now mirrors the phone's
+        // Today filter — due today or overdue, excluding done/dropped —
+        // rather than everything marked "hot". No calendar section; this is
+        // just the task-list half of what the phone's Today tab shows.
+        let today = String(ISO8601DateFormatter().string(from: Date()).prefix(10))
         return payload.tasks
-            .filter { $0.status == "hot" }
+            .filter { ($0.due ?? "9999") <= today && !["done", "dropped"].contains($0.status) }
             .sorted {
                 let d0 = $0.due ?? "9999", d1 = $1.due ?? "9999"
                 return d0 == d1 ? $0.name < $1.name : d0 < d1
@@ -58,36 +63,36 @@ struct OatlyWidgetEntryView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
-                Text("🔥 Hot")
-                    .font(.system(size: 13, weight: .bold))
+                Text("📅 Today")
+                    .font(.system(size: 15, weight: .bold))
                     .foregroundColor(brandBlue)
                 Spacer()
                 Text("\(entry.tasks.count)")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.secondary)
             }
             Divider()
             if entry.tasks.isEmpty {
                 Spacer()
-                Text("No hot tasks")
-                    .font(.system(size: 12))
+                Text("Nothing due today")
+                    .font(.system(size: 14))
                     .foregroundColor(.secondary)
                 Spacer()
             } else {
                 ForEach(sections, id: \.role) { section in
                     Text(section.role)
-                        .font(.system(size: 11, weight: .bold))
+                        .font(.system(size: 13, weight: .bold))
                         .foregroundColor(brandBlue)
                         .padding(.top, 2)
                     ForEach(section.tasks.prefix(4), id: \.name) { task in
                         HStack {
-                            Text(task.name)
-                                .font(.system(size: 12))
+                            taskTitle(task)
+                                .font(.system(size: 14))
                                 .lineLimit(1)
                             Spacer()
                             if let due = task.due {
                                 Text(due)
-                                    .font(.system(size: 11))
+                                    .font(.system(size: 13))
                                     .foregroundColor(dueColour(due))
                             }
                         }
@@ -97,6 +102,15 @@ struct OatlyWidgetEntryView: View {
             }
         }
         .padding(12)
+    }
+
+    /// Task name, prefixed with an alarm clock when `nag_time` is set —
+    /// same visual cue as the phone app's `TaskRowView`.
+    private func taskTitle(_ task: OTTaskJSON) -> Text {
+        if let nagTime = task.nagTime, !nagTime.isEmpty {
+            return Text("⏰ \(task.name)")
+        }
+        return Text(task.name)
     }
 
     private func dueColour(_ due: String) -> Color {
@@ -116,8 +130,8 @@ struct OatlyWidget: Widget {
             OatlyWidgetEntryView(entry: entry)
                 .containerBackground(.background, for: .widget)
         }
-        .configurationDisplayName("Oatly Hot Tasks")
-        .description("Your hot tasks at a glance.")
+        .configurationDisplayName("Oatly Today")
+        .description("Tasks due today or overdue, at a glance.")
         .supportedFamilies([.systemLarge])
     }
 }

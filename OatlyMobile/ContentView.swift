@@ -19,11 +19,19 @@ struct ContentView: View {
     @StateObject private var calendarStore: CalendarStore = CalendarStore()
     @State private var page: ContentPage = .filter(.today)
     @State private var showingAddTask = false
+    @State private var showingAddRoutine = false
     @Environment(\.scenePhase) private var scenePhase
+
+    /// iPhone-only simplification (David, 5 July 2026): the carousel only
+    /// shows Today and Hot — Overdue/Warm/Cool/Log stayed on the desktop
+    /// app, which he uses for the deeper views. Deliberately scoped to just
+    /// this file (not `SmartFilter` itself) so iPad's sidebar keeps all six
+    /// filters untouched, same precedent as the `ContentPage` wrapper above.
+    private let iPhoneFilters: [SmartFilter] = [.today, .hot]
 
     var body: some View {
         TabView(selection: $page) {
-            ForEach(SmartFilter.allCases, id: \.self) { f in
+            ForEach(iPhoneFilters, id: \.self) { f in
                 NavigationStack {
                     filterView(for: f)
                         .toolbar { pageToolbar(current: .filter(f)) }
@@ -44,6 +52,9 @@ struct ContentView: View {
         .sheet(isPresented: $showingAddTask) {
             AddTaskView()
         }
+        .sheet(isPresented: $showingAddRoutine) {
+            AddRoutineView()
+        }
         .task {
             await calendarStore.requestAccessAndLoad()
         }
@@ -58,7 +69,7 @@ struct ContentView: View {
     private func pageToolbar(current: ContentPage) -> some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Menu {
-                ForEach(SmartFilter.allCases, id: \.self) { f in
+                ForEach(iPhoneFilters, id: \.self) { f in
                     Button(f.label) { page = .filter(f) }
                 }
                 Button("⏰ Routines") { page = .routines }
@@ -75,7 +86,10 @@ struct ContentView: View {
         }
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
-                showingAddTask = true
+                switch current {
+                case .filter: showingAddTask = true
+                case .routines: showingAddRoutine = true
+                }
             } label: {
                 Image(systemName: "plus")
                     .font(.system(size: 16, weight: .semibold))
