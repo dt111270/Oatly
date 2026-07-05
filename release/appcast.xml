@@ -6,6 +6,15 @@
     <language>en</language>
 
     <item>
+      <title>1.5</title>
+      <pubDate>Sun, 05 Jul 2026 09:10:37 +0100</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.3</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/dt111270/Oatly/releases/download/v1.5/Oatly-1.5.zip" sparkle:edSignature="6bX9CkahLFh11AuVAVc5EvAR4sDqR+eP6eMpcX8aUxMYeCsQdJ/LBc0jne6GwIwmKHLVBM1yPJw1Z8p55mftCw==" length="4162739" type="application/octet-stream" />
+    </item>
+
+    <item>
       <title>1.4</title>
       <pubDate>Sat, 04 Jul 2026 21:22:31 +0100</pubDate>
       <sparkle:version>5</sparkle:version>
