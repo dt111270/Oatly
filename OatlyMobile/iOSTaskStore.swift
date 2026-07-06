@@ -22,15 +22,22 @@ class iOSTaskStore: NSObject, ObservableObject {
     /// recently than the vault write-back has had time to round-trip back
     /// into `tasks.json`. Obsidian's write happens via a URL scheme, then
     /// Leonai has to notice the file change, rewrite iCloud, and only then
-    /// does the phone's next `load()` see the real status — a few seconds
-    /// at least. Without this, tapping Done on a nag notification could
-    /// immediately trigger another `load()` (the app launching/foregrounding
-    /// to handle the notification), which would still see the task as hot
-    /// in the stale payload and re-book the very nag Done just cancelled.
+    /// does the phone's next `load()` see the real status — normally just
+    /// a few seconds (Leonai's `TaskStore` re-scans and re-uploads on its
+    /// own 3-second timer, well inside `Maintenance`'s separate 10-minute
+    /// cycle), but with no hard upper bound if Leonai's asleep or Oatly
+    /// isn't running, or iCloud itself is slow to propagate to the phone.
+    /// Without this, tapping Done on a nag notification could immediately
+    /// trigger another `load()` (the app launching/foregrounding to handle
+    /// the notification), which would still see the task as hot in the
+    /// stale payload and re-book the very nag Done just cancelled.
     /// Entries are cleared once the synced payload confirms the status
-    /// really has changed, or after `recentlyDoneTimeout` as a safety net.
+    /// really has changed, or after `recentlyDoneTimeout` as a safety net
+    /// (David, 5 July 2026: bumped from 2 to 30 minutes — 2 was shorter
+    /// than a realistic worst-case round trip, which is what caused a
+    /// completed nag to reappear and re-fire on a later pull-to-refresh).
     private var recentlyDoneKeys: [String: Date] = [:]
-    private let recentlyDoneTimeout: TimeInterval = 120
+    private let recentlyDoneTimeout: TimeInterval = 30 * 60
 
     override init() {
         super.init()
@@ -87,14 +94,39 @@ class iOSTaskStore: NSObject, ObservableObject {
         }
     }
 
+    /// Ticking the checkbox in-app used to only grey the row and fire the
+    /// write-back, unlike tapping Done on a notification — which also
+    /// cancels that task's booked notifications immediately via
+    /// `handleDone`. That asymmetry meant checking a task off in-app could
+    /// still leave today's already-booked nag occurrences to fire anyway,
+    /// silenced only once a later `load()` caught up and noticed the
+    /// status had changed. Fixed (David, 5 July 2026) by cancelling here
+    /// too, the same way `handleDone` does.
     func markDone(_ task: OTTaskJSON) {
         checkedNames.insert(task.name)
-        markRecentlyDone(key: task.filepath ?? task.name)
+        let key = task.filepath ?? task.name
+        markRecentlyDone(key: key)
+        cancelAllNotifications(forKey: key)
         guard let filepath = task.filepath else {
             print("No filepath for task: \(task.name)")
             return
         }
         markDoneByFilepath(filepath)
+    }
+
+    /// Cancels both notification types for a key in one go. A task is only
+    /// ever actually booked under one of `TaskNotificationScheduler` (plain
+    /// due/overdue reminder) or `NaggingNotificationScheduler` (nag_time
+    /// set) — never both — but there's no need to inspect `nagTime` here
+    /// just to pick the "right" one: cancelling the type that was never
+    /// booked is a harmless no-op (it just finds nothing to remove).
+    private func cancelAllNotifications(forKey key: String, completion: @escaping () -> Void = {}) {
+        let group = DispatchGroup()
+        group.enter()
+        TaskNotificationScheduler.cancelReminder(forKey: key) { group.leave() }
+        group.enter()
+        NaggingNotificationScheduler.cancelNagging(key: key) { group.leave() }
+        group.notify(queue: .main, execute: completion)
     }
 
     /// Same Obsidian write-back as `markDone(_:)`, usable from contexts —
